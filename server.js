@@ -12,6 +12,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+const mongoose = require("mongoose");
+const mongo = process.env.PROD_MONGODB || "mongodb://localhost"
+mongoose.connect(mongo, {useNewUrlParser: true})
 
 // Send every other request to the React app
 // Define any API routes before this runs
