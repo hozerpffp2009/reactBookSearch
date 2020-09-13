@@ -1,5 +1,7 @@
 import React from "react";
 import API from "../utils/API";
+import SearchForm from "../components/SearchForm"
+import Results from "../components/Results"
 
 class Search extends React.Component {
     constructor(props) {
@@ -9,10 +11,10 @@ class Search extends React.Component {
             bookData: []
         }
         this.handleSearchClick = this.handleSearchClick.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleFormChange = this.handleFormChange.bind(this);
     }
 
-    handleInputChange(change) {
+    handleFormChange(change) {
         change.preventDefault();
         this.setState({bookInput: change.target.value})
             }
@@ -31,9 +33,9 @@ class Search extends React.Component {
     render() {
         return(
             <main>
-                <SearchForm handleInputChange= {this.handleInputChange} handleSearchClick={this.handleSearchClick} />
+                <SearchForm handleFormChange= {this.handleFormChange} handleSearchClick={this.handleSearchClick} />
                 {(this.state.bookData.length > 0 )?
-                    <ResultsContainer bookData= {this.state.bookData} path= {this.props.match.path} /> : null    
+                    <Results bookData= {this.state.bookData} path= {this.props.match.path} /> : null    
             }
             </main>
         );

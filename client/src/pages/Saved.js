@@ -1,6 +1,6 @@
-import { response } from "express";
 import React from "react";
 import API from "../utils/API";
+import Results from "../components/Results"
 
 class Saved extends React.Component {
     constructor(props) {
@@ -10,7 +10,7 @@ class Saved extends React.Component {
         }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         API.getBooks().then(
             (response) => {
                 this.setState({savedBooks: response.data});
@@ -25,7 +25,7 @@ class Saved extends React.Component {
     render() {
         return(
             <main>
-                <ResultContainer saveBooks={this.state.savedBooks} path={this.props.match.path} />
+                <Results saveBooks={this.state.savedBooks} path={this.props.match.path} />
             </main>
         );
     }

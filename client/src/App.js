@@ -1,6 +1,10 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./App.css";
+import Search from "./pages/Search";
+import Saved from "./pages/Saved";
+import Nav from "./components/Nav";
+import Header from "./components/Header";
 
 class App extends Component {
   render() {
@@ -9,10 +13,10 @@ class App extends Component {
         <div>
           <Nav />
           <Header />
-          <switch>
+          <Switch>
             <Route exact path="/" component={Search}/>
             <Route path="/saved" component={Saved}/>
-          </switch>
+          </Switch>
         </div>
       </Router>
     )
