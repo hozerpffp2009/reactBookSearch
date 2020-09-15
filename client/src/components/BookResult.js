@@ -23,7 +23,7 @@ class BookResult extends React.Component {
       description: this.props.description,
     };
     evt.preventDefault();
-    API.addBookToDB(bookData)
+    API.addBook(bookData)
       .then((response) => {
         console.log(response);
       })
