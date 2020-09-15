@@ -26,7 +26,7 @@ mongoose.connect(mongo, {useNewUrlParser: true})
 .catch((err) => {
   console.log(`Error connecting to mongoDB: ${err}`);
 });
-require("./routes/api-routes")(app);
+require("./routes/routes")(app);
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
