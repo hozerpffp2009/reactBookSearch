@@ -8,7 +8,7 @@ export default {
     return axios.post("/search", {title: title});
   },
   addBook: (bookData) => {
-    return axios.post("/api/books", {bookData: bookData});
+    return axios.post("/api/books", bookData);
   },
   deleteBook: (id) => {
     return axios.delete(`/api/books/${id}`);

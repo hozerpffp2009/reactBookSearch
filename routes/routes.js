@@ -34,14 +34,14 @@ module.exports = function(app) {
     app.post("/api/books", (req, res) => {
         //database books-models accessing- .create passing req.body
         db.Books.create(req.body).then(
-            (bookData) => {
-                res.json(bookData);
+            (response) => {
+                res.json({successful: response});
                 console.log(bookData);
             }
         ).catch(
             (err) => {
                 res.json({error: err});
-            }
+            }                                
         );
     });
 

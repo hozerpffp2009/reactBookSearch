@@ -22,7 +22,6 @@ class BookResult extends React.Component {
       img: this.props.img,
       description: this.props.description,
     };
-    evt.preventDefault();
     API.addBook(bookData)
       .then((response) => {
         console.log(response);

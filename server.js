@@ -18,7 +18,8 @@ app.use(cors({
 }));
 // Define API routes here
 const mongoose = require("mongoose");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", { useNewUrlParser: true })
+const mongo = process.env.PROD_MONGODB || "mongodb://localhost:27017/googlebooks"
+mongoose.connect(mongo, {useNewUrlParser: true})
 .then(() => {
   console.log("🗄 ==> Successfully connected to mongoDB.");
 })
