@@ -10,12 +10,6 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
-const cors = require('cors');
-app.use(cors({
-  origin: 'http://local host:3000',
-  credentials: true,
-}));
 // Define API routes here
 const mongoose = require("mongoose");
 const mongo = process.env.PROD_MONGODB || "mongodb://localhost:27017/googlebooks"
