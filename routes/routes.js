@@ -6,8 +6,8 @@ const path = require("path");
 module.exports = function(app) {
     app.get("/api/books", (req, res) => {
         db.Books.find().then(
-            (booksData) => {
-                res.json(booksData);
+            (bookData) => {
+                res.json(bookData);
             }
         ) .catch(
             (err) => {
@@ -26,15 +26,17 @@ module.exports = function(app) {
             }
         ) .catch(
             (err) => {
-                res.json({error: error})
+                res.json({error: err})
             }
         );
     });
 
     app.post("/api/books", (req, res) => {
+        //database books-models accessing- .create passing req.body
         db.Books.create(req.body).then(
-            (response) => {
-                res.json({successful: response});
+            (bookData) => {
+                res.json(bookData);
+                console.log(bookData);
             }
         ).catch(
             (err) => {

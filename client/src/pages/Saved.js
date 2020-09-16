@@ -24,7 +24,7 @@ class Saved extends React.Component {
     return (
       <main>
         <Results
-          saveBooks={this.state.savedBooks}
+          savedBooks={this.state.savedBooks}
           path={this.props.match.path}
         />
       </main>
