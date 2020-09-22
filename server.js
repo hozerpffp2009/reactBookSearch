@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Define middleware here
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -12,14 +12,21 @@ if (process.env.NODE_ENV === "production") {
 }
 // Define API routes here
 const mongoose = require("mongoose");
-const mongo = process.env.PROD_MONGODB || "mongodb://localhost:27017/googlebooks"
-mongoose.connect(mongo, {useNewUrlParser: true})
-.then(() => {
-  console.log("🗄 ==> Successfully connected to mongoDB.");
-})
-.catch((err) => {
-  console.log(`Error connecting to mongoDB: ${err}`);
-});
+const mongo =
+  process.env.PROD_MONGODB || "mongodb://localhost:27017/googlebooks";
+mongoose
+  .connect(mongo, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  })
+  .then(() => {
+    console.log("🗄 ==> Successfully connected to mongoDB.");
+  })
+  .catch((err) => {
+    console.log(`Error connecting to mongoDB: ${err}`);
+  });
 require("./routes/routes")(app);
 // Send every other request to the React app
 // Define any API routes before this runs
