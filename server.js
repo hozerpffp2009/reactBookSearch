@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Define API routes here
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 // const mongo =
 //   process.env.PROD_MONGODB || "mongodb://localhost:27017/googlebooks";
 // mongoose
