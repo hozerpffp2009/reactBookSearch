@@ -20,11 +20,11 @@ function Results(props) {
             </div>
         );
     } else if(props.path === "/saved") {
-        if(props.savedBooks.length > 0 ) {
+        if(props.savedBook.length > 0 ) {
             return (
                 <div id="resultsContainer">
                 <h3>Saved Books</h3>
-                {props.savedBooks.map((book) => {
+                {props.savedBook.map((book) => {
                     return <BookResult
                     title={book.title}
                     authors={book.authors}

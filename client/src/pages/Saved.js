@@ -6,14 +6,14 @@ class Saved extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      savedBooks: [],
+      savedBook: [],
     };
   }
 
   componentWillMount() {
-    API.getBooks()
+    API.getBook()
       .then((response) => {
-        this.setState({savedBooks: response.data});
+        this.setState({savedBook: response.data});
       })
       .catch((err) => {
         console.log("Saved Books error", err);
@@ -24,7 +24,7 @@ class Saved extends React.Component {
     return (
       <main>
         <Results
-          savedBooks={this.state.savedBooks}
+          savedBook={this.state.savedBook}
           path={this.props.match.path}
         />
       </main>

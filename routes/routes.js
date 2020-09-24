@@ -4,8 +4,8 @@ const db = require("../models");
 const path = require("path");
 
 module.exports = function(app) {
-    app.get("/api/books", (req, res) => {
-        db.Books.find().then(
+    app.get("/api/book", (req, res) => {
+        db.Book.find().then(
             (bookData) => {
                 res.json(bookData);
             }
@@ -31,9 +31,9 @@ module.exports = function(app) {
         );
     });
 
-    app.post("/api/books", (req, res) => {
+    app.post("/api/book", (req, res) => {
         //database books-models accessing- .create passing req.body
-        db.Books.create(req.body).then(
+        db.Book.create(req.body).then(
             (response) => {
                 res.json({successful: response});
             }
@@ -44,8 +44,8 @@ module.exports = function(app) {
         );
     });
 
-    app.delete("/api/books/:id", (req, res) => {
-        db.Books.findByIdAndDelete(req.params.id).then(
+    app.delete("/api/book/:id", (req, res) => {
+        db.Book.findByIdAndDelete(req.params.id).then(
             (response) => {
                 res.json({successful: response});
             }

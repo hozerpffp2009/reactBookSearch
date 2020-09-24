@@ -1,16 +1,16 @@
 import axios from "axios";
 
 export default {
-  getBooks: () => {
-    return axios.get("/api/books");
+  getBook: () => {
+    return axios.get("/api/book");
   },
-  searchBooks: (title) => {
+  searchBook: (title) => {
     return axios.post("/search", {title: title});
   },
   addBook: (bookData) => {
-    return axios.post("/api/books", bookData);
+    return axios.post("/api/book", bookData);
   },
   deleteBook: (id) => {
-    return axios.delete(`/api/books/${id}`);
+    return axios.delete(`/api/book/${id}`);
   },
 };
