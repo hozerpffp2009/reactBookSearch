@@ -1,6 +1,6 @@
 import React from "react";
 import API from "../utils/API";
-import {BrowserRouter as Router} from "react-router-dom";
+// import {BrowserRouter as Router} from "react-router-dom";
 
 class BookResult extends React.Component {
   constructor(props) {
@@ -37,7 +37,6 @@ class BookResult extends React.Component {
     API.deleteBook(this.props.id).then(
         (response) => {
             console.log(response);
-            Router.dispatch(this.props.location, null)
         }
     ).catch(
         (err) => {

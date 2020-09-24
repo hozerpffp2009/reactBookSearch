@@ -36,7 +36,6 @@ module.exports = function(app) {
         db.Books.create(req.body).then(
             (response) => {
                 res.json({successful: response});
-                console.log(bookData);
             }
         ).catch(
             (err) => {
