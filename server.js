@@ -11,16 +11,25 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 // Define API routes here
-const mongoose = require("mongoose");
-const mongo =
-  process.env.PROD_MONGODB || "mongodb://localhost:27017/googlebooks";
-mongoose
-  .connect(mongo, {
+// const mongoose = require("mongoose");
+// const mongo =
+//   process.env.PROD_MONGODB || "mongodb://localhost:27017/googlebooks";
+// mongoose
+//   .connect(mongo, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true,
+//     useFindAndModify: false,
+//   })
+mongoose.connect(
+  process.env.ATLAS_URI || "mongodb://localhost/googlebooks",
+  {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
     useFindAndModify: false,
-  })
+  }
+)
   .then(() => {
     console.log("🗄 ==> Successfully connected to mongoDB.");
   })
